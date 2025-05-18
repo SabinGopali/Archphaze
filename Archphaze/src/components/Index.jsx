@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ReactTyped } from "react-typed";
+import { Cover } from "../components/ui/cover";
 
 import image1 from '../assets/homescreen.png';
 import image2 from '../assets/archphaze1.png';
@@ -46,7 +47,7 @@ export default function Index() {
         {/* Text Section */}
         <div className="flex flex-col justify-center space-y-8 text-center md:text-left">
           <p className="text-red-500 uppercase font-medium tracking-wide" data-aos="fade-up">
-            BUILD.HOST.LAUNCH
+            BUILD.HOST.<cover>LAUNCH</cover>
           </p>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900" data-aos="zoom-in">
