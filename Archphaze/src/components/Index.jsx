@@ -7,6 +7,9 @@ import { Cover } from "../components/ui/cover";
 import image1 from '../assets/homescreen.png';
 import image2 from '../assets/archphaze1.png';
 import image3 from '../assets/homescreen.png';
+import Services from './Services';
+import Whyus from './Whyus';
+import Testimonial from './Testimonial';
 
 function getRandomColor() {
   const letters = '0123456789ABCDEF';
@@ -41,13 +44,14 @@ export default function Index() {
   }, []);
 
   return (
+    <>
     <div className="pt-12 bg-gradient-to-b from-white to-white-500 flex items-center">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-15 px-6 md:px-12 xl:px-20 py-12">
         
         {/* Text Section */}
         <div className="flex flex-col justify-center space-y-8 text-center md:text-left">
           <p className="text-red-500 uppercase font-medium tracking-wide" data-aos="fade-up">
-            BUILD.HOST.<cover>LAUNCH</cover>
+            BUILD.HOST.LAUNCH
           </p>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900" data-aos="zoom-in">
@@ -108,5 +112,9 @@ export default function Index() {
         </div>
       </div>
     </div>
+      <Services/>
+      <Whyus/>
+      <Testimonial/>
+      </>
   );
 }

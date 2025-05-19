@@ -4,6 +4,11 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Index from './components/Index';
 import Services from './components/Services';
 import Whyus from './components/Whyus';
+import Testimonial from './components/Testimonial';
+import Aboutus from './components/Aboutus';
+import Contactus from './components/Contactus';
+import Footer from './components/Footer';
+import SecondaryFooter from './components/SecondaryFooter';
 
 
 
@@ -12,12 +17,18 @@ export default function App() {
     <div>
       <Router>
         <Navbar />
-        <Index/>
-        <Services/>
-        <Whyus/>
-        <Routes>
-          {/* <Route path="/" element={<Navbar/>}/> */}
+         <Routes>
+          <Route path="/" element={<Index/>}/>
+          <Route path="/Aboutus" element={<Aboutus/>}/>
+          <Route path="/Contactus" element={<Contactus/>}/>
+          <Route path="/Testimonial" element={<Testimonial/>}/>
+          <Route path="/Services" element={<Services/>}/>
+          <Route path="/Whyus" element={<Whyus/>}/>
+       
+          
         </Routes>
+        <SecondaryFooter/>
+        <Footer/>
       </Router>
     </div>
   )

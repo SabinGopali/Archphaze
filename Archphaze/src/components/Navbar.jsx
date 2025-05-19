@@ -18,7 +18,6 @@ export default function Navbar() {
   return (
     <nav className="bg-white sticky top-0 z-50 w-full h-24 border-b border-gray-200 shadow-sm">
       <div className="max-w-[1440px] w-full mx-auto flex items-center justify-between px-8 md:px-16 py-3">
-
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 shrink-0">
           <img src={logo} className="h-16 w-auto max-h-[64px]" alt="Logo" />
@@ -28,29 +27,26 @@ export default function Navbar() {
         <div className="hidden md:flex items-center justify-center flex-1 relative">
           <ul className="flex space-x-8 bg-[#f7f8fc] px-6 py-3 rounded-xl font-medium text-gray-600">
             <li><Link to="/" className="text-black font-semibold hover:text-black">Home</Link></li>
-            <li><Link to="/about" className="hover:text-black">About Us</Link></li>
-            <li><Link to="/team" className="hover:text-black">Our Team</Link></li>
+            <li><Link to="/Aboutus" className="hover:text-black">Our Services</Link></li>
+            <li><Link to="/team" className="hover:text-black">Career</Link></li>
 
             {/* Services Dropdown */}
             <li className="relative group">
               <div className="flex items-center gap-1 cursor-pointer hover:text-black">
-                <span>Our Services</span>
+                <Link to="/Testimonial" span>Meet The Team</Link>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
               <div className="absolute left-0 top-full mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-300 ease-in-out">
                 <ul className="py-2 text-sm text-gray-700">
-                  <li><Link to="/services/web-dev" className="block px-4 py-2 hover:bg-gray-100">Web Development</Link></li>
-                  <li><Link to="/services/mobile-dev" className="block px-4 py-2 hover:bg-gray-100">Mobile App Development</Link></li>
-                  <li><Link to="/services/uiux" className="block px-4 py-2 hover:bg-gray-100">UI/UX Design</Link></li>
-                  <li><Link to="/services/cloud" className="block px-4 py-2 hover:bg-gray-100">Cloud Solutions</Link></li>
-                  <li><Link to="/services/devops" className="block px-4 py-2 hover:bg-gray-100">DevOps Consulting</Link></li>
+                  <li><Link to="/Aboutus" className="block px-4 py-2 hover:bg-gray-100">About Us</Link></li>
+                  <li><Link to="/Whyus" className="block px-4 py-2 hover:bg-gray-100">Why Choose Us</Link></li>
                 </ul>
               </div>
             </li>
 
-            <li><Link to="/contact" className="hover:text-black">Contact Us</Link></li>
+            <li><Link to="/Contactus" className="hover:text-black">Contact Us</Link></li>
           </ul>
         </div>
 
@@ -80,16 +76,16 @@ export default function Navbar() {
       >
         <ul className="flex flex-col px-6 py-4 bg-gray-50 text-gray-700 font-medium border-t space-y-3">
           <li><Link to="/" onClick={toggleMobileMenu}>Home</Link></li>
-          <li><Link to="/about" onClick={toggleMobileMenu}>About Us</Link></li>
-          <li><Link to="/team" onClick={toggleMobileMenu}>Our Team</Link></li>
+          <li><Link to="/Services" onClick={toggleMobileMenu}>Our Services</Link></li>
+          <li><Link to="/team" onClick={toggleMobileMenu}>Career</Link></li>
 
-          {/* Mobile Services Dropdown */}
+          {/* Match "Meet The Team" Dropdown */}
           <li>
             <button
               className="w-full text-left flex items-center justify-between"
               onClick={toggleServicesMenu}
             >
-              <span>Our Services</span>
+              <Link to="/Testimonial" span>Meet The Team</Link>
               <svg
                 className={`w-4 h-4 transform transition-transform duration-300 ${
                   isServicesOpen ? 'rotate-180' : ''
@@ -104,16 +100,13 @@ export default function Navbar() {
             </button>
             {isServicesOpen && (
               <ul className="mt-2 ml-4 space-y-2 text-sm">
-                <li><Link to="/services/web-dev" onClick={toggleMobileMenu}>Web Development</Link></li>
-                <li><Link to="/services/mobile-dev" onClick={toggleMobileMenu}>Mobile App Development</Link></li>
-                <li><Link to="/services/uiux" onClick={toggleMobileMenu}>UI/UX Design</Link></li>
-                <li><Link to="/services/cloud" onClick={toggleMobileMenu}>Cloud Solutions</Link></li>
-                <li><Link to="/services/devops" onClick={toggleMobileMenu}>DevOps Consulting</Link></li>
+                <li><Link to="/Aboutus" onClick={toggleMobileMenu}>About Us</Link></li>
+                <li><Link to="/Whyus" onClick={toggleMobileMenu}>Why Choose Us</Link></li>
               </ul>
             )}
           </li>
 
-          <li><Link to="/contact" onClick={toggleMobileMenu}>Contact Us</Link></li>
+          <li><Link to="/Contactus" onClick={toggleMobileMenu}>Contact Us</Link></li>
           <li>
             <button className="w-full text-center px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
               Build With Us

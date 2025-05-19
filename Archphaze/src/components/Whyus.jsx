@@ -38,7 +38,7 @@ export default function Whyus() {
       {/* Text Section */}
       <div>
         <h2 className="text-4xl font-bold text-gray-800 mb-4" data-aos="fade-out">
-          Why Choose Our IT Services?
+          WHY <span className="text-red-500">CHOOSE</span>  US?
         </h2>
         <p className="text-gray-600 mb-6" data-aos="flip-right">
           We provide innovative and scalable IT solutions tailored to your business. From cloud deployments to secure infrastructure and intelligent software—trust us to deliver excellence.
