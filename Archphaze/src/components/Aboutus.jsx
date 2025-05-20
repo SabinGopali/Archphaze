@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
-import image from '../assets/homescreen.png'; // Replace with actual image
+import image from '../assets/homescreen.png'; 
+import Whyus from './Whyus';
 
 export default function AboutCompany() {
   const [activeTab, setActiveTab] = useState('about');
@@ -15,7 +16,7 @@ export default function AboutCompany() {
     about: {
       title: '✓ Who are We',
       paragraphs: [
-        `At Retro IT Solutions, we specialize in delivering top-tier IT solutions to businesses, offering cutting-edge web solutions tailored for your success. With a seasoned team boasting experience across diverse industries, we consistently innovate to drive client success.`,
+        `At Archphaze Technologies, we specialize in delivering top-tier IT solutions to businesses, offering cutting-edge web solutions tailored for your success. With a seasoned team boasting experience across diverse industries, we consistently innovate to drive client success.`,
         `Our approach prioritizes critical information, ensuring professionalism and post-implementation support for enduring results. Driven by innovation, we constantly push boundaries, presenting fresh ideas and approaches to ensure your success.`,
         `We prioritize essential information, maintaining a high level of professionalism while delivering impactful results. Join us, and let's embark on a journey of growth, innovation, and unparalleled success together.`,
       ]
@@ -37,8 +38,9 @@ export default function AboutCompany() {
   };
 
   return (
-    <section className="bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-16">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-white max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20 py-16">
+      
+      <div>
         {/* Title */}
         <motion.h2
           className="text-4xl sm:text-5xl font-semibold text-gray-800 mb-2"
@@ -112,6 +114,7 @@ export default function AboutCompany() {
           </motion.div>
         </div>
       </div>
+      <Whyus />
     </section>
   );
 }

@@ -38,11 +38,11 @@ const Footer = () => {
         <h3 className="text-xl font-semibold mb-4">Address</h3>
         <p className="flex items-center space-x-2 text-sm mb-2">
           <FaMapMarkerAlt />
-          <span>123 Street, New York, USA</span>
+          <span>Kalimati, Kathmandu, Nepal</span>
         </p>
         <p className="flex items-center space-x-2 text-sm mb-2">
           <FaPhoneAlt />
-          <span>+012 345 67890</span>
+          <span>+997 9999999999</span>
         </p>
         <p className="flex items-center space-x-2 text-sm">
           <FaEnvelope />
@@ -54,7 +54,7 @@ const Footer = () => {
       <div>
         <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
         <ul className="space-y-2 text-sm text-gray-300">
-          {["About Us", "Contact Us", "Our Services", "Terms & Conditions", "Support"].map((text, i) => (
+          {["About Us", "Contact Us", "Our Services", "Meet the team", "Career"].map((text, i) => (
             <li
               key={i}
               className="cursor-pointer relative w-fit after:block after:h-[2px] after:bg-white after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
