@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/archphaze1.png';
 
 export default function Navbar() {
@@ -19,37 +19,89 @@ export default function Navbar() {
     <nav className="bg-white sticky top-0 z-50 w-full h-28 border-b border-gray-200 shadow-sm">
       <div className="max-w-[1440px] w-full mx-auto flex items-center justify-between px-8 md:px-16 py-2">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3 shrink-0">
+        <NavLink to="/" className="flex items-center space-x-3 shrink-0">
           <img 
             src={logo} 
             className="h-24 w-auto max-h-[96px] min-w-[120px] object-contain" 
             alt="Logo" 
           />
-        </Link>
+        </NavLink>
 
         {/* Center Links (Desktop) */}
         <div className="hidden md:flex items-center justify-center flex-1 relative">
           <ul className="flex space-x-8 bg-[#f7f8fc] px-6 py-3 rounded-xl font-medium text-gray-600">
-            <li><Link to="/" className="text-black font-semibold hover:text-black">Home</Link></li>
-            <li><Link to="/Services" className="hover:text-black">Our Services</Link></li>
-            <li><Link to="/career" className="hover:text-black">Career</Link></li>
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? 'text-black font-semibold' : 'hover:text-black'
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/Services"
+                className={({ isActive }) =>
+                  isActive ? 'text-black font-semibold' : 'hover:text-black'
+                }
+              >
+                Our Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/career"
+                className={({ isActive }) =>
+                  isActive ? 'text-black font-semibold' : 'hover:text-black'
+                }
+              >
+                Career
+              </NavLink>
+            </li>
 
             {/* Services Dropdown */}
             <li className="relative group">
               <div className="flex items-center gap-1 cursor-pointer hover:text-black">
-                <Link to="/Testimonial">Meet The Team</Link>
+                <NavLink
+                  to="/Testimonial"
+                  className={({ isActive }) =>
+                    isActive ? 'text-black font-semibold' : ''
+                  }
+                >
+                  Meet The Team
+                </NavLink>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
               <div className="absolute left-0 top-full mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-300 ease-in-out">
                 <ul className="py-2 text-sm text-gray-700">
-                  <li><Link to="/Aboutus" className="block px-4 py-2 hover:bg-gray-100">About Us</Link></li>
+                  <li>
+                    <NavLink
+                      to="/Aboutus"
+                      className={({ isActive }) =>
+                        isActive ? 'block px-4 py-2 bg-gray-100' : 'block px-4 py-2 hover:bg-gray-100'
+                      }
+                    >
+                      About Us
+                    </NavLink>
+                  </li>
                 </ul>
               </div>
             </li>
 
-            <li><Link to="/Contactus" className="hover:text-black">Contact Us</Link></li>
+            <li>
+              <NavLink
+                to="/Contactus"
+                className={({ isActive }) =>
+                  isActive ? 'text-black font-semibold' : 'hover:text-black'
+                }
+              >
+                Contact Us
+              </NavLink>
+            </li>
           </ul>
         </div>
 
@@ -78,9 +130,21 @@ export default function Navbar() {
         } overflow-hidden`}
       >
         <ul className="flex flex-col px-6 py-4 bg-gray-50 text-gray-700 font-medium border-t space-y-3">
-          <li><Link to="/" onClick={toggleMobileMenu}>Home</Link></li>
-          <li><Link to="/Services" onClick={toggleMobileMenu}>Our Services</Link></li>
-          <li><Link to="/team" onClick={toggleMobileMenu}>Career</Link></li>
+          <li>
+            <NavLink to="/" onClick={toggleMobileMenu} className={({ isActive }) => isActive ? 'font-semibold' : ''}>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Services" onClick={toggleMobileMenu} className={({ isActive }) => isActive ? 'font-semibold' : ''}>
+              Our Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/career" onClick={toggleMobileMenu} className={({ isActive }) => isActive ? 'font-semibold' : ''}>
+              Career
+            </NavLink>
+          </li>
 
           {/* Mobile Dropdown */}
           <li>
@@ -88,11 +152,11 @@ export default function Navbar() {
               className="w-full text-left flex items-center justify-between"
               onClick={toggleServicesMenu}
             >
-              <Link to="/Testimonial">Meet The Team</Link>
+              <NavLink to="/Testimonial" className={({ isActive }) => isActive ? 'font-semibold' : ''}>
+                Meet The Team
+              </NavLink>
               <svg
-                className={`w-4 h-4 transform transition-transform duration-300 ${
-                  isServicesOpen ? 'rotate-180' : ''
-                }`}
+                className={`w-4 h-4 transform transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -103,12 +167,20 @@ export default function Navbar() {
             </button>
             {isServicesOpen && (
               <ul className="mt-2 ml-4 space-y-2 text-sm">
-                <li><Link to="/Aboutus" onClick={toggleMobileMenu}>About Us</Link></li>
+                <li>
+                  <NavLink to="/Aboutus" onClick={toggleMobileMenu} className={({ isActive }) => isActive ? 'font-semibold' : ''}>
+                    About Us
+                  </NavLink>
+                </li>
               </ul>
             )}
           </li>
 
-          <li><Link to="/Contactus" onClick={toggleMobileMenu}>Contact Us</Link></li>
+          <li>
+            <NavLink to="/Contactus" onClick={toggleMobileMenu} className={({ isActive }) => isActive ? 'font-semibold' : ''}>
+              Contact Us
+            </NavLink>
+          </li>
           <li>
             <button className="w-full text-center px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
               Build With Us
