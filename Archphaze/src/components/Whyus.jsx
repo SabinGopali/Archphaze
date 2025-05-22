@@ -49,10 +49,10 @@ export default function Whyus() {
             <motion.div
               key={index}
               className="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2"
-              whileHover={{ scale: 1.05, rotate: 1 }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, }}
+              animate={{ opacity: 1,  }}
+              transition={{ delay: 0.2 }}
             >
               <div className="mb-3">{feature.icon}</div>
               <h4 className="font-semibold text-lg mb-1 text-gray-800">{feature.title}</h4>

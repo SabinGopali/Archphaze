@@ -32,7 +32,7 @@ export default function Navbar() {
           <ul className="flex space-x-8 bg-[#f7f8fc] px-6 py-3 rounded-xl font-medium text-gray-600">
             <li><Link to="/" className="text-black font-semibold hover:text-black">Home</Link></li>
             <li><Link to="/Services" className="hover:text-black">Our Services</Link></li>
-            <li><Link to="/team" className="hover:text-black">Career</Link></li>
+            <li><Link to="/career" className="hover:text-black">Career</Link></li>
 
             {/* Services Dropdown */}
             <li className="relative group">

@@ -15,7 +15,7 @@ const teamMembers = [
   {
     id: 2,
     name: 'Sulav Kadel',
-    position: 'Human Resource',
+    position: 'lead developer',
     bio: 'Architecting scalable and robust technology solutions.',
     img: logo,
     delay: 0.4,

@@ -9,6 +9,9 @@ import Aboutus from './components/Aboutus';
 import Contactus from './components/Contactus';
 import Footer from './components/Footer';
 import SecondaryFooter from './components/SecondaryFooter';
+import Career from './components/Career';
+import ScrollToTop from './components/Scrolltotop';
+import Modal from './components/Modal';
 
 
 
@@ -16,6 +19,7 @@ export default function App() {
   return (
     <div>
       <Router>
+        <ScrollToTop/>
         <Navbar />
          <Routes>
           <Route path="/" element={<Index/>}/>
@@ -24,6 +28,9 @@ export default function App() {
           <Route path="/Testimonial" element={<Testimonial/>}/>
           <Route path="/Services" element={<Services/>}/>
           <Route path="/Whyus" element={<Whyus/>}/>
+          <Route path="/career" element={<Career/>}/>
+          <Route path="/modal" element={<Modal/>}/>
+          
        
           
         </Routes>
