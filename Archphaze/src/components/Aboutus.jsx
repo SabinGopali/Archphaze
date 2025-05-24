@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
-import image from '../assets/homescreen.png'; 
+import image from '../assets/homescreen.webp'; 
 import Whyus from './Whyus';
 
 export default function AboutCompany() {

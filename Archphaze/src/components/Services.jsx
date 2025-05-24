@@ -4,10 +4,10 @@ import 'aos/dist/aos.css';
 import Modal from './Modal'; // Adjust path if needed
 
 // Images
-import WebDevImg from '../assets/homescreen.png';
-import MobileAppImg from '../assets/homescreen.png';
-import UIUXImg from '../assets/homescreen.png';
-import ApiImg from '../assets/homescreen.png';
+import WebDevImg from '../assets/homescreen.webp';
+import MobileAppImg from '../assets/homescreen.webp';
+import UIUXImg from '../assets/homescreen.webp';
+import ApiImg from '../assets/homescreen.webp';
 
 const data = [
   {

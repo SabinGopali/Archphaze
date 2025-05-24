@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../assets/homescreen.png";
+import img from "../assets/homescreen.webp";
 import { Link } from "react-router-dom";
 
 const JoinOurTeam = () => {

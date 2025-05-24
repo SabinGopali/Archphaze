@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
-import logo from '../assets/homescreen.png';
+import logo from '../assets/homescreen.webp';
 
 const teamMembers = [
   {

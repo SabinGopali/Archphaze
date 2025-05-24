@@ -8,7 +8,7 @@ import {
   FaPhoneAlt,
   FaEnvelope
 } from "react-icons/fa";
-import logo from "../assets/archphaze1.png";
+import logo from "../assets/archphaze.webp";
 
 const Footer = () => {
   return (

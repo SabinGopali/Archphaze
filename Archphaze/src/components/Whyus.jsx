@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaCode, FaRocket, FaShieldAlt, FaPiggyBank } from "react-icons/fa";
-import logo from '../assets/archphaze1.png';
+import logo from '../assets/archphaze.webp';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -29,18 +29,18 @@ const features = [
 ];
 
 export default function Whyus() {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
 
-    useEffect(() => {
-        AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
-      }, []);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-6 py-12 max-w-6xl mx-auto">
       {/* Text Section */}
       <div>
-        <h2 className="text-4xl font-bold text-gray-800 mb-4" data-aos="fade-out">
-          WHY <span className="text-red-500">CHOOSE</span>  US?
+        <h2 className="text-4xl font-bold text-gray-800 mb-4" data-aos="fade-up">
+          WHY <span className="text-red-500">CHOOSE</span> US?
         </h2>
-        <p className="text-gray-600 mb-6" data-aos="flip-right">
+        <p className="text-gray-600 mb-6" data-aos="fade-up">
           We provide innovative and scalable IT solutions tailored to your business. From cloud deployments to secure infrastructure and intelligent software—trust us to deliver excellence.
         </p>
 
@@ -48,11 +48,11 @@ export default function Whyus() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2"
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, }}
-              animate={{ opacity: 1,  }}
-              transition={{ delay: 0.2 }}
+              className="bg-white rounded-2xl p-5 shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <div className="mb-3">{feature.icon}</div>
               <h4 className="font-semibold text-lg mb-1 text-gray-800">{feature.title}</h4>
@@ -64,9 +64,10 @@ export default function Whyus() {
 
       {/* Image Section */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.6 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         className="flex justify-center"
       >
         <img
