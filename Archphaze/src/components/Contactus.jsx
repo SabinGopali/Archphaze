@@ -31,7 +31,7 @@ export default function ContactUs() {
             </div>
 
             <div>
-              <div className="flex items-center gap-2 text-orange-500 font-semibold">
+              <div className="flex items-center gap-2 text-red-500 font-semibold">
                 <Mail className="w-5 h-5" />
                 <span>Email:</span>
               </div>
@@ -39,7 +39,7 @@ export default function ContactUs() {
             </div>
 
             <div>
-              <div className="flex items-center gap-2 text-orange-500 font-semibold">
+              <div className="flex items-center gap-2 text-red-500 font-semibold">
                 <Phone className="w-5 h-5" />
                 <span>Call:</span>
               </div>

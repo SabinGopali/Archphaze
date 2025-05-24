@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, Links, NavLink } from 'react-router-dom';
 import logo from '/archphaze.webp';
 
 export default function Navbar() {
@@ -84,12 +84,15 @@ export default function Navbar() {
 
         {/* Right Button */}
         <div className="hidden md:block">
-          <button className="px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
+          <Link to="/Contactus">
+          <button className="px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition cursor-pointer">
             Build With Us
           </button>
+          </Link>
         </div>
 
         {/* Hamburger */}
+       
         <button
           onClick={toggleMobileMenu}
           className="md:hidden text-gray-700 p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-200"
@@ -98,6 +101,7 @@ export default function Navbar() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
+        
       </div>
 
       {/* Mobile Menu */}
@@ -148,9 +152,11 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li>
-            <button className="w-full text-center px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
+            <Link to="/Contactus">
+            <button className="w-full text-cente cursor-pointer px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
               Build With Us
             </button>
+            </Link>
           </li>
         </ul>
       </div>
