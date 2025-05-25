@@ -1,6 +1,7 @@
 import React from "react";
 import img from "../assets/homescreen.webp";
 import { Link } from "react-router-dom";
+import { SparkleIcon } from "lucide-react";
 
 const JoinOurTeam = () => {
   return (
@@ -52,12 +53,11 @@ const JoinOurTeam = () => {
 
         <p className="text-sm sm:text-base text-justify">
           Send us your resume to{" "}
-          <Link
-            to="mailto:info@example.com"
+          <span
             className="text-red-500 font-medium"
           >
             info@example.com
-          </Link>{" "}
+          </span>{" "}
           to explore your career at{" "}
           <span className="text-red-500 font-medium text-justify">Archphaze Technologies</span>.
         </p>

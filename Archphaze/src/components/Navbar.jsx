@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Links, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '/archphaze.webp';
 
 export default function Navbar() {
@@ -16,9 +16,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white sticky top-0 z-50 w-full h-28 border-b border-gray-200 shadow-sm">
-      <div className="max-w-[1440px] w-full mx-auto flex items-center justify-between px-8 md:px-16 py-2">
-        
+    <nav className="bg-white sticky top-0 z-50 w-full border-b border-gray-200 shadow-sm">
+      <div className="max-w-[1440px] w-full mx-auto flex flex-wrap items-center justify-between px-4 md:px-8 lg:px-16 py-2">
+
         {/* Logo */}
         <NavLink to="/" className="flex items-center space-x-3 shrink-0">
           <img 
@@ -28,15 +28,25 @@ export default function Navbar() {
             alt="Logo"
             loading="eager"
             decoding="async"
-            fetchpriority="high"
+            fetchPriority="high"
             className="object-contain"
             style={{ maxWidth: 'none' }}
           />
         </NavLink>
 
-        {/* Center Links (Desktop) */}
-        <div className="hidden md:flex items-center justify-center flex-1 relative">
-          <ul className="flex space-x-8 bg-[#f7f8fc] px-6 py-3 rounded-xl font-medium text-gray-600">
+        {/* Hamburger */}
+        <button
+          onClick={toggleMobileMenu}
+          className="md:hidden text-gray-700 p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-200"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        {/* Center Links (Tablet & Desktop) */}
+        <div className="hidden md:flex items-center justify-center flex-1">
+          <ul className="flex flex-wrap space-x-2 md:space-x-4 lg:space-x-8 bg-[#f7f8fc] px-3 md:px-4 lg:px-6 py-2 md:py-2.5 lg:py-3 rounded-xl font-medium text-gray-600 text-sm md:text-base">
             <li>
               <NavLink to="/" className={({ isActive }) => isActive ? 'text-black font-semibold' : 'hover:text-black'}>
                 Home
@@ -52,8 +62,6 @@ export default function Navbar() {
                 Career
               </NavLink>
             </li>
-
-            {/* Dropdown */}
             <li className="relative group">
               <div className="flex items-center gap-1 cursor-pointer hover:text-black">
                 <NavLink to="/Testimonial" className={({ isActive }) => isActive ? 'text-black font-semibold' : ''}>
@@ -73,7 +81,6 @@ export default function Navbar() {
                 </ul>
               </div>
             </li>
-
             <li>
               <NavLink to="/Contactus" className={({ isActive }) => isActive ? 'text-black font-semibold' : 'hover:text-black'}>
                 Contact Us
@@ -85,30 +92,16 @@ export default function Navbar() {
         {/* Right Button */}
         <div className="hidden md:block">
           <Link to="/Contactus">
-          <button className="px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition cursor-pointer">
-            Build With Us
-          </button>
+            <button className="px-4 md:px-5 py-1.5 md:py-2 border border-black rounded-md hover:bg-black hover:text-white transition cursor-pointer text-sm md:text-base">
+              Build With Us
+            </button>
           </Link>
         </div>
-
-        {/* Hamburger */}
-       
-        <button
-          onClick={toggleMobileMenu}
-          className="md:hidden text-gray-700 p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-200"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-        
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}
-      >
-        <ul className="flex flex-col px-6 py-4 bg-gray-50 text-gray-700 font-medium border-t space-y-3">
+      <div className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+        <ul className="flex flex-col px-6 py-4 bg-gray-50 text-gray-700 font-medium border-t space-y-3 text-sm">
           <li>
             <NavLink to="/" onClick={toggleMobileMenu} className={({ isActive }) => isActive ? 'font-semibold' : ''}>
               Home
@@ -124,8 +117,6 @@ export default function Navbar() {
               Career
             </NavLink>
           </li>
-
-          {/* Mobile Dropdown */}
           <li>
             <button className="w-full text-left flex items-center justify-between" onClick={toggleServicesMenu}>
               <NavLink to="/Testimonial" className={({ isActive }) => isActive ? 'font-semibold' : ''}>
@@ -145,7 +136,6 @@ export default function Navbar() {
               </ul>
             )}
           </li>
-
           <li>
             <NavLink to="/Contactus" onClick={toggleMobileMenu} className={({ isActive }) => isActive ? 'font-semibold' : ''}>
               Contact Us
@@ -153,9 +143,9 @@ export default function Navbar() {
           </li>
           <li>
             <Link to="/Contactus">
-            <button className="w-full text-cente cursor-pointer px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
-              Build With Us
-            </button>
+              <button className="w-full text-center cursor-pointer px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
+                Build With Us
+              </button>
             </Link>
           </li>
         </ul>

@@ -1,4 +1,5 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaArrowUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -8,33 +9,34 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-gray-300 py-8 px-6 relative border-t border-white">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer className="bg-black text-gray-300 py-8 px-4 sm:px-6 relative border-t border-white w-full">
+      <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 px-2 sm:px-4">
         {/* Branding */}
-        <div className="text-center md:text-left">
-          <h2 className="text-xl font-semibold text-white">Archphaze Technologies Pvt. Ltd</h2>
-          <p className="text-sm mt-1">© {year}. All rights reserved.</p>
+        <div className="text-center md:text-left w-full md:w-auto">
+          <h2 className="text-lg sm:text-xl font-semibold text-white">
+            Archphaze Technologies Pvt. Ltd
+          </h2>
+          <p className="text-xs sm:text-sm mt-1">
+            © {year}. All rights reserved.
+          </p>
         </div>
 
         {/* Social Links */}
-        <div className="flex space-x-4">
-          <a href="#" className="hover:text-white"><FaFacebook /></a>
-          <a href="#" className="hover:text-white"><FaTwitter /></a>
-          <a href="#" className="hover:text-white"><FaInstagram /></a>
+        <div className="flex items-center justify-center space-x-4 mt-2 md:mt-0">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <FaFacebook size={18} className="sm:size-5" />
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <FaTwitter size={18} className="sm:size-5" />
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <FaInstagram size={18} className="sm:size-5" />
+          </a>
         </div>
-
-        {/* Credits */}
-        
       </div>
 
       {/* Scroll to Top */}
-      <button
-        onClick={scrollToTop}
-        className="absolute right-6 bottom-6 bg-red-500 text-white p-3 rounded-full shadow-lg hover:bg-red-400 transition cursor-pointer"
-        aria-label="Scroll to top"
-      >
-        <FaArrowUp />
-      </button>
+      
     </footer>
   );
 }

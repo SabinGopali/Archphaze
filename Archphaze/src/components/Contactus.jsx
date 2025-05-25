@@ -1,7 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!/^\d{7,15}$/.test(formData.phone)) {
+      newErrors.phone = 'Phone number is invalid';
+    }
+    if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
+    return newErrors;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    // Submit logic here
+    alert('Message sent successfully!');
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+  };
+
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-white">
       <div className="text-center mb-12">
@@ -12,8 +58,7 @@ export default function ContactUs() {
       </div>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-        
-        {/* Left Panel - Contact Info */}
+        {/* Contact Info */}
         <div className="bg-white shadow-md p-6 rounded-lg">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Get in touch</h3>
           <p className="text-gray-700 mb-6">
@@ -29,7 +74,6 @@ export default function ContactUs() {
               </div>
               <p className="ml-7">Kalimati-13, Kathmandu, Nepal</p>
             </div>
-
             <div>
               <div className="flex items-center gap-2 text-red-500 font-semibold">
                 <Mail className="w-5 h-5" />
@@ -37,7 +81,6 @@ export default function ContactUs() {
               </div>
               <p className="ml-7">info@example.com</p>
             </div>
-
             <div>
               <div className="flex items-center gap-2 text-red-500 font-semibold">
                 <Phone className="w-5 h-5" />
@@ -48,46 +91,79 @@ export default function ContactUs() {
           </div>
         </div>
 
-        {/* Right Panel - Contact Form */}
+        {/* Contact Form */}
         <div className="flex flex-col gap-8">
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
+                />
+                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
+                />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              </div>
+            </div>
+            <div>
               <input
                 type="text"
-                placeholder="Your Name"
+                name="phone"
+                placeholder="Phone.no"
+                value={formData.phone}
+                onChange={handleChange}
                 className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
               />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
-              />
+              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
-            <input
-              type="text"
-              placeholder="Phone.no"
-              className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
-            />
-            <input
-              type="text"
-              placeholder="Subject"
-              className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
-            />
-            <textarea
-              placeholder="Message"
-              rows="6"
-              className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
-            ></textarea>
-            <div className="hidden md:block">
-          <button className="px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
-            Send us message
-          </button>
-        </div>
+            <div>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
+              />
+              {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
+            </div>
+            <div>
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows="6"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black-500"
+              />
+              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+            </div>
+            <div >
+              <button
+                type="submit"
+                className="px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition"
+              >
+                Send us message
+              </button>
+            </div>
           </form>
         </div>
       </div>
 
-      {/* Full-Width Google Map */}
+      {/* Google Map */}
       <div className="w-full h-[300px] sm:h-[400px] mt-16 rounded-xl overflow-hidden shadow-md">
         <iframe
           title="Google Map"
