@@ -35,7 +35,7 @@ export default function Navbar() {
         </NavLink>
 
         {/* Hamburger */}
-        <button
+        <button aria-label='buildwithus'
           onClick={toggleMobileMenu}
           className="md:hidden text-gray-700 p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-200"
         >

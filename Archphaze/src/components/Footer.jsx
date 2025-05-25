@@ -23,15 +23,15 @@ export default function Footer() {
 
         {/* Social Links */}
         <div className="flex items-center justify-center space-x-4 mt-2 md:mt-0">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+          <Link to="https://www.facebook.com" aria-label="facebook" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             <FaFacebook size={18} className="sm:size-5" />
-          </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+          </Link>
+          <Link to="https://www.twitter.com" aria-label="twitter" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             <FaTwitter size={18} className="sm:size-5" />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+          </Link>
+          <Link to="https://www.instagram.com" aria-label="instagram" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             <FaInstagram size={18} className="sm:size-5" />
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -152,10 +152,7 @@ export default function ContactUs() {
               {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
             </div>
             <div >
-              <button
-                type="submit"
-                className="px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition"
-              >
+              <button type="submit" className="px-5 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
                 Send us message
               </button>
             </div>
