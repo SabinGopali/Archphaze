@@ -75,11 +75,11 @@ const Footer = () => {
           </p>
           <p className="flex items-center space-x-2 text-sm mb-2">
             <FaPhoneAlt size={16} />
-            <a to="tel:+9979999999999" className="hover:underline">+997 9999999999</a>
+            <span >+997 9999999999</span>
           </p>
           <p className="flex items-center space-x-2 text-sm">
             <FaEnvelope size={16} />
-            <a to="mailto:info@example.com" className="hover:underline">info@example.com</a>
+            <span >info@example.com</span>
           </p>
         </div>
 

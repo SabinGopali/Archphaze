@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ReactTyped } from "react-typed";
-// import { Cover } from "../components/ui/cover";
+import { Helmet } from 'react-helmet'; // ← Import Helmet
 
 import image1 from '/homescreen.webp';
 import image2 from '/archphaze.webp';
@@ -11,8 +11,6 @@ import Services from './Services';
 import Whyus from './Whyus';
 import Testimonial from './Testimonial';
 import { Link } from 'react-router-dom';
-
-
 
 function getRandomGradient() {
   return `linear-gradient(135deg, #ff0000, #cc0000)`; 
@@ -37,6 +35,15 @@ export default function Index() {
 
   return (
     <>
+      {/* Meta Description */}
+      <Helmet>
+        <title>Home - Archphaze Technologies</title>
+        <meta
+          name="description"
+          content="Archphaze Technologies delivers innovative tech solutions for businesses. Discover our services in web, mobile, and cloud development tailored to your success."
+        />
+      </Helmet>
+
       <div className="pt-6 bg-gradient-to-b from-white to-white-500 flex items-center">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-15 px-6 md:px-12 xl:px-20 py-12">
           
@@ -58,12 +65,12 @@ export default function Index() {
 
             <div>
               <Link to="/Contactus">
-              <button
-                    className="px-6 py-3 font-semibold rounded-lg bg-gradient-to-r from-red-500 to-pink-600 text-white shadow-lg
-                   hover:from-pink-600 hover:to-red-500 hover:scale-105 hover:shadow-2xl transition transform duration-300 ease-in-out cursor-pointer"
->
-                     Build With Us
-              </button>
+                <button
+                  className="px-6 py-3 font-semibold rounded-lg bg-gradient-to-r from-red-500 to-pink-600 text-white shadow-lg
+                    hover:from-pink-600 hover:to-red-500 hover:scale-105 hover:shadow-2xl transition transform duration-300 ease-in-out cursor-pointer"
+                >
+                  Build With Us
+                </button>
               </Link>
             </div>
           </div>
@@ -74,7 +81,7 @@ export default function Index() {
               className="relative w-full max-w-[600px] h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden shadow-2xl"
               style={{
                 borderWidth: '3px',
-                borderRadius: '0', // Sharp corners
+                borderRadius: '0',
                 borderStyle: 'solid',
                 borderImageSlice: 1,
                 borderImageSource: cardGradient,
@@ -97,7 +104,7 @@ export default function Index() {
                     currentImage === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
                   }`}
                   style={{
-                    borderRadius: '0px', // match parent
+                    borderRadius: '0px',
                     transform: 'translateZ(30px)',
                   }}
                 />

@@ -1,8 +1,14 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaCode, FaRocket, FaShieldAlt, FaPiggyBank } from "react-icons/fa";
+import {
+  FaCode,
+  FaRocket,
+  FaShieldAlt,
+  FaPiggyBank,
+} from "react-icons/fa";
 import logo from "../assets/archphaze.webp";
 import AOS from "aos";
+import { Helmet } from "react-helmet";
 import "aos/dist/aos.css";
 
 const features = [
@@ -35,14 +41,28 @@ export default function Whyus() {
 
   return (
     <section className="bg-white max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20 py-16">
+      {/* SEO */}
+      <Helmet>
+        <title>Why Choose Us - Archphaze Technologies</title>
+        <meta
+          name="description"
+          content="Discover why businesses choose Archphaze Technologies for software development, cyber security, and cost-effective IT solutions."
+        />
+      </Helmet>
+
       <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-10">
         {/* Text Section */}
         <div className="space-y-6">
-          <h2 className="text-4xl font-bold text-gray-800" data-aos="fade-up">
+          <h2
+            className="text-4xl font-bold text-gray-800"
+            data-aos="fade-up"
+          >
             WHY <span className="text-red-500">CHOOSE</span> US?
           </h2>
           <p className="text-gray-600" data-aos="fade-up">
-            We provide innovative and scalable IT solutions tailored to your business. From cloud deployments to secure infrastructure and intelligent software—trust us to deliver excellence.
+            We provide innovative and scalable IT solutions tailored to
+            your business. From cloud deployments to secure infrastructure
+            and intelligent software—trust us to deliver excellence.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -56,7 +76,9 @@ export default function Whyus() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
                 <div className="mb-3">{feature.icon}</div>
-                <h4 className="font-semibold text-lg mb-1 text-gray-800">{feature.title}</h4>
+                <h4 className="font-semibold text-lg mb-1 text-gray-800">
+                  {feature.title}
+                </h4>
                 <p className="text-gray-500 text-sm">{feature.desc}</p>
               </motion.div>
             ))}
@@ -73,7 +95,7 @@ export default function Whyus() {
         >
           <img
             src={logo}
-            alt="IT professional working"
+            alt="Team member illustrating service excellence"
             className="rounded-xl shadow-lg w-full max-w-sm object-contain"
           />
         </motion.div>

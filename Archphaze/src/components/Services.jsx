@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Helmet } from 'react-helmet';
 import Modal from './Modal'; // Adjust path if needed
 
 // Images
@@ -59,7 +60,6 @@ export default function Services() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({ title: '', content: '', image: '' });
-
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const handleReadMore = (item) => {
@@ -69,6 +69,15 @@ export default function Services() {
 
   return (
     <div className="relative w-full py-20 px-4 overflow-hidden bg-white">
+      {/* SEO Tags */}
+      <Helmet>
+        <title>Our Services - Archphaze Technologies</title>
+        <meta
+          name="description"
+          content="Explore our range of services including website development, mobile app development, UI/UX design, and API integration. We build modern, scalable, and reliable tech solutions."
+        />
+      </Helmet>
+
       <div className="max-w-screen-xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-12">

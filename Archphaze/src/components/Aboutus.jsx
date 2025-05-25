@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 import image from '../assets/homescreen.webp';
 import Whyus from './Whyus';
 
@@ -39,6 +40,14 @@ export default function Aboutus() {
 
   return (
     <section className="bg-white max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20 py-16">
+      <Helmet>
+        <title>About Us - Archphaze Technologies</title>
+        <meta
+          name="description"
+          content="Learn more about Archphaze Technologies—who we are, our mission, and our vision. Discover how we empower businesses with innovative IT solutions."
+        />
+      </Helmet>
+
       <div>
         {/* Title */}
         <motion.h2
@@ -116,7 +125,6 @@ export default function Aboutus() {
           </motion.div>
         </div>
       </div>
-
     </section>
   );
 }
