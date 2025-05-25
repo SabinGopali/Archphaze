@@ -13,22 +13,22 @@ import "aos/dist/aos.css";
 
 const features = [
   {
-    icon: <FaCode className="text-4xl text-black-600" />,
+    icon: <FaCode className="text-4xl text-gray-600" />,
     title: "Custom Development",
     desc: "Tailored software to suit your business goals.",
   },
   {
-    icon: <FaRocket className="text-4xl text-black-600" />,
+    icon: <FaRocket className="text-4xl text-gray-600" />,
     title: "Fast Deployment",
     desc: "Quick launch without compromising quality.",
   },
   {
-    icon: <FaShieldAlt className="text-4xl text-black-600" />,
+    icon: <FaShieldAlt className="text-4xl text-gray-600" />,
     title: "Cyber Security",
     desc: "End-to-end encryption and monitoring.",
   },
   {
-    icon: <FaPiggyBank className="text-4xl text-black-600" />,
+    icon: <FaPiggyBank className="text-4xl text-gray-600" />,
     title: "Cost Efficiency",
     desc: "Affordable plans with maximum ROI.",
   },
@@ -40,7 +40,10 @@ export default function Whyus() {
   }, []);
 
   return (
-    <section className="bg-white max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20 py-16">
+    <section
+      className="bg-white max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20 py-16"
+      aria-labelledby="whyus-heading"
+    >
       {/* SEO */}
       <Helmet>
         <title>Why Choose Us - Archphaze Technologies</title>
@@ -53,12 +56,15 @@ export default function Whyus() {
       <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-10">
         {/* Text Section */}
         <div className="space-y-6">
-          <h2
+          {/* Changed to h1 for semantic correctness */}
+          <h1
+            id="whyus-heading"
             className="text-4xl font-bold text-gray-800"
             data-aos="fade-up"
           >
             WHY <span className="text-red-500">CHOOSE</span> US?
-          </h2>
+          </h1>
+
           <p className="text-gray-600" data-aos="fade-up">
             We provide innovative and scalable IT solutions tailored to
             your business. From cloud deployments to secure infrastructure
@@ -75,10 +81,12 @@ export default function Whyus() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <div className="mb-3">{feature.icon}</div>
-                <h4 className="font-semibold text-lg mb-1 text-gray-800">
+                <div className="mb-3" aria-hidden="true">
+                  {feature.icon}
+                </div>
+                <h3 className="font-semibold text-lg mb-1 text-gray-800">
                   {feature.title}
-                </h4>
+                </h3>
                 <p className="text-gray-500 text-sm">{feature.desc}</p>
               </motion.div>
             ))}
@@ -95,7 +103,7 @@ export default function Whyus() {
         >
           <img
             src={logo}
-            alt="Team member illustrating service excellence"
+            alt="Illustration of IT professional working to provide service excellence"
             className="rounded-xl shadow-lg w-full max-w-sm object-contain"
           />
         </motion.div>
